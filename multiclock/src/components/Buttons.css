@@ -1,0 +1,31 @@
+.Options{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width:100vw;
+  }
+  .Option{
+    font-family: 'Digi1';
+    font-size: 3vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 10px;
+    border-radius: 15px;
+    text-shadow: 0 0 20px  white;
+    transition:all 0.3s ease;
+  }
+  .Clicked{
+    position: absolute;
+    top: 1vh;
+    left:1vw;
+    font-size: 4vw;
+    color: var(--Secondary-color);
+    text-shadow: 0 0 20px  var(--Secondary-color);
+  }
+  .NoClick:hover{
+    cursor: pointer;
+    box-shadow: 0 0 8px 5px white;
+  }

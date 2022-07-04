@@ -1,0 +1,15 @@
+ .Clock1 {
+    font-family: 'Digi1';
+    color: var(--Secondary-color);
+    font-size: 22vw;
+    text-shadow: 0 0 20px  var(--Secondary-color);
+}
+.Date{
+    font-family: 'Digi1';
+    font-size: 4vw;
+    color: var(--Secondary-color);
+    text-shadow: 0 0 20px  var(--Secondary-color);
+} 
+.prueba1{
+    font-size: 15vw;
+}

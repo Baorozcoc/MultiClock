@@ -1,0 +1,22 @@
+.App {
+  text-align: center;
+  --Principal-color: rgb(21, 223, 145);
+  --Secondary-color: rgb(0, 174, 255);
+}
+@font-face {
+  font-family: 'Digi1';
+  src: local('Digi1'), 
+       local('Digi1'), 
+       url('./resources/DS-DIGI.TTF') format('truetype'); 
+}
+.Main {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+

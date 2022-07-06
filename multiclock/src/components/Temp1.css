@@ -1,0 +1,23 @@
+.Temp1 {
+    font-family: 'Digi1';
+    color: var(--Secondary-color);
+    font-size: 22vw;
+    text-shadow: 0 0 20px  var(--Secondary-color);
+}
+.Buttons{
+    font-family: 'Digi1';
+    font-size: 6vw;
+    color: white;
+    text-shadow: 0 0 20px  white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.Buttons div{
+    padding: 0px 10px;
+    border-radius: 15px;
+}
+.Buttons div:hover{
+    cursor: pointer;
+    box-shadow: 0 0 8px 5px white;
+  }

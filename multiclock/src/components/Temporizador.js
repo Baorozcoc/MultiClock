@@ -11,9 +11,9 @@ function toStr(texto){
 const Temp1 = () => {
     const [start,setstart]=useState(0);
     const [infinite, isInfinite]= useState(0);
-    const [hours, setHours]= useState(1);
-    const [minutes, setMinutes]= useState(30);
-    const [seconds, setSeconds]= useState(40);
+    const [hours, setHours]= useState(0);
+    const [minutes, setMinutes]= useState(0);
+    const [seconds, setSeconds]= useState(0);
     const [hoursstatic, setHoursstatic]= useState(0);
     const [minutesstatic, setMinutesstatic]= useState(0);
     const [secondsstatic, setSecondsstatic]= useState(0);
@@ -23,13 +23,12 @@ const Temp1 = () => {
             {
                 if(infinite===0 && hours===0 && minutes===0 && seconds===0 ){
                     setstart(0);
-                    alarm.play();
                 }
                 else if(infinite===1 && hours===0 && minutes===0 && seconds===0){
                     setSeconds(secondsstatic);
                     setMinutes(minutesstatic);
                     setHours(hoursstatic);
-                    alarm.play();
+                    
                 }
                 else if(seconds===0 && minutes===0 && hours!==0){
                     setSeconds(59);
@@ -47,6 +46,9 @@ const Temp1 = () => {
                 }
                 else{
                     setSeconds(seconds-1);
+                }
+                if(hours===0 && minutes===0 && seconds===1){
+                    alarm.play();
                 }
             },1000)
 

@@ -1,10 +1,9 @@
-import React, {useState} from 'react';
 import Sound from '../resources/Option.wav'
 import './Buttons.css'
 
 const Buttons = ({option,setOption})=>{
-    const [alarm]=useState(new Audio(Sound));
     function Choose(option){
+      const alarm= new Audio(Sound);
       alarm.play();
       setOption(option);
     }

@@ -1,0 +1,44 @@
+.Clock {
+    font-family: 'Digi1';
+    color: var(--Secondary-color);
+    font-size: 22vw;
+    text-shadow: 0 0 20px  var(--Secondary-color);
+    width: 90vw;
+}
+.Clock2 {
+    font-size: 16vw;
+}
+.AlarmsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.Alarms{
+    font-family: 'Digi1';
+    font-size: 4vw;
+    color: var(--Principal-color);
+    text-shadow: 0 0 20px  var(--Principal-color);
+    padding: 5px;
+}
+.Alarms i:hover{
+    cursor: pointer;
+    color: white;
+    text-shadow: 0 0 20px  white;
+}
+.Ex{
+    color: red;
+    text-shadow: 0 0 20px  red;
+}
+.Emergente{
+    font-family: 'Digi1';
+    position: absolute;
+    width: 70vw;
+    top: 5vh;
+    left: 20vw;
+    border-radius: 20px;
+    background-color: rgb(40, 44, 52,0.9);
+    box-shadow: 0 0 8px 5px white;
+}
+.Emergente div{
+    justify-content: space-evenly;
+}

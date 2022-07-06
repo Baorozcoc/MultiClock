@@ -16,6 +16,7 @@
     border-radius: 15px;
     text-shadow: 0 0 20px  white;
     transition:all 0.3s ease;
+    user-select: none;
   }
   .Clicked{
     position: absolute;

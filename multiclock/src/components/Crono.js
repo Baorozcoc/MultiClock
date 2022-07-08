@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import Sound from '../resources/Option.wav'
+import Click from '../resources/SimpleClick.wav'
 import './Crono.css'
 
 function toStr(texto){
@@ -54,17 +54,17 @@ const Crono = () => {
         setMinutes(0);
         setSeconds(0);
         setMilisec(0);
-        const alarm= new Audio(Sound);
+        const alarm= new Audio(Click);
         alarm.play();
     }
     function Continue(){
         setstart(1);
-        const alarm= new Audio(Sound);
+        const alarm= new Audio(Click);
         alarm.play();
     }
     function Stop(){
         setstart(0);
-        const alarm= new Audio(Sound);
+        const alarm= new Audio(Click);
         alarm.play();
     }
     return(

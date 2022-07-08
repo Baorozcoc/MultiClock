@@ -1,7 +1,10 @@
 .App {
   text-align: center;
-  --Principal-color: rgb(21, 223, 145);
-  --Secondary-color: rgb(0, 174, 255);
+}
+:root{
+  --Principal-color: #15df91;
+  --Secondary-color: #00aeff;
+  overflow: hidden;
 }
 @font-face {
   font-family: 'Digi1';
@@ -19,6 +22,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
   font-family: 'Digi1';
+  overflow: hidden;
 }
 @media screen and (max-width: 800px) {
   .Main{
@@ -53,6 +57,65 @@
   bottom: 1vh;
   right:1vw;
   font-size: 2vw;
+  color: rgb(255, 255, 255,0.3);
+  text-shadow: 0 0 20px  rgb(255, 255, 255,0.3);
+}
+.Styles{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: right;
+  position: absolute;
+  top: 1vh;
+  right:1vw;
+  font-size: 4vw;
   color: white;
   text-shadow: 0 0 20px  white;
+  transition:all 0.3s ease;
+}
+@media screen and (max-width: 800px) {
+  .Styles{
+    font-size: 6vw;
+  }
+}
+.Styles:hover{
+  cursor: pointer;
+  user-select: none;
+}
+.Styles div{
+  padding: 5px;
+  margin:0px 5px;
+  border-radius: 10px;
+}
+.Styles div:hover{
+  cursor: pointer;
+  box-shadow: 0 0 8px 5px white;
+}
+.S1{
+  color: #00aeff;
+  text-shadow: 0 0 20px  #00aeff;
+}
+.S2{
+  color: orange;
+  text-shadow: 0 0 20px  orange;
+}
+.S3{
+  color:lightseagreen;
+  text-shadow: 0 0 20px  lightseagreen;
+}
+.S4{
+  color:salmon;
+  text-shadow: 0 0 20px  salmon;
+}
+.S6{
+  color:orangered;
+  text-shadow: 0 0 20px  orangered;
+}
+.S5{
+  color:lightgreen;
+  text-shadow: 0 0 20px  lightgreen;
+}
+.S7{
+  color:hotpink;
+  text-shadow: 0 0 20px  hotpink;
 }

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './Temp1.css'
 import Sound from '../resources/TempSound.wav'
+import Click from '../resources/SimpleClick.wav'
 
 function toStr(texto){
     return texto.toLocaleString('en-US', {
@@ -109,6 +110,16 @@ const Temp1 = () => {
             setSecondsstatic(59);
         }
     }
+    function Activate(n){
+        const Clic=new Audio(Click);
+        Clic.play();
+        setstart(n);
+    }
+    function SetInfinite(n){
+        const Clic=new Audio(Click);
+        Clic.play();
+        isInfinite(n);
+    }
     const sectoshow=toStr(seconds);
     const mintoshow=toStr(minutes);
     const hourtoshow=toStr(hours);
@@ -128,9 +139,9 @@ const Temp1 = () => {
                 <div onClick={()=>LessSeconds()}>-</div>
             </div>}
             <div className='Buttons'>
-                {start===0&&(minutes!==0||hours!==0||seconds!==0)&&<div onClick={()=>setstart(1)}>EMPEZAR</div>}
-                {start===1&&<div onClick={()=>setstart(0)}>PARAR</div>}
-                {infinite===0?<div onClick={()=>isInfinite(1)}>REPETIR=NO</div>:<div onClick={()=>isInfinite(0)}>REPETIR=SI</div>}
+                {start===0&&(minutes!==0||hours!==0||seconds!==0)&&<div onClick={()=>Activate(1)}>EMPEZAR</div>}
+                {start===1&&<div onClick={()=>Activate(0)}>PARAR</div>}
+                {infinite===0?<div onClick={()=>SetInfinite(1)}>REPETIR=NO</div>:<div onClick={()=>SetInfinite(0)}>REPETIR=SI</div>}
             </div>
         </div>
     )

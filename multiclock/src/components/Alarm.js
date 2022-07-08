@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Sound from '../resources/Alarm.wav'
+import Click from '../resources/SimpleClick.wav'
 import './Alarm.css'
 
 function toStr(texto){
@@ -34,7 +35,14 @@ const Alarm = () => {
     const [newAlarm,setNewAlarm]=useState(0);
     const [newHour,setNewHour]=useState(0);
     const [newMinute,setNewMinute]=useState(0);
+    function AbrirNuevaAlarma(){
+        const Clic= new Audio(Click);
+        Clic.play();
+        setNewAlarm(1);
+    }
     function nuevaAlarma(){
+        const Clic= new Audio(Click);
+        Clic.play();
         var Arr=alarms.slice();
         if(alarmId!==-1){
             Arr.splice(alarmId,1);
@@ -49,12 +57,16 @@ const Alarm = () => {
         setAlarmId(-1);
     }
     function Cancelar(){
+        const Clic= new Audio(Click);
+        Clic.play();
         setNewAlarm(0);
         setNewHour(0);
         setNewMinute(0);
         setAlarmId(-1);
     }
     function EliminarAlarma(index){
+        const Clic= new Audio(Click);
+        Clic.play();
         var Arr=alarms.slice();
         Arr.splice(index,1);
         setAlarms(Arr);
@@ -63,6 +75,8 @@ const Alarm = () => {
         setNewMinute(0)
     }
     function EditarAlarma(index){
+        const Clic= new Audio(Click);
+        Clic.play();
         setNewAlarm(1);
         setNewHour(alarms[index][0]);
         setNewMinute(alarms[index][1])
@@ -79,23 +93,23 @@ const Alarm = () => {
                     </div>
                 ))}
             </div>
-            {alarms.length<12&&<div className='Option NoClick' onClick={()=>setNewAlarm(1)}>Agregar Alarma</div>}
+            {alarms.length<12&&<div className='Option NoClick' onClick={()=>AbrirNuevaAlarma()}>Agregar Alarma</div>}
             {newAlarm===1&&
             <div className='Emergente'>
                 <div className='Buttons'>
-                    <div   className='Option NoClick' onClick={()=>newHour<24&&setNewHour(newHour+1)}>+</div>
-                    <div   className='Option NoClick' onClick={()=>newMinute<54&&setNewMinute(newMinute+5)}>+</div>
+                    <div className='Option NoClick' onClick={()=>newHour<24&&setNewHour(newHour+1)}>+</div>
+                    <div className='Option NoClick' onClick={()=>newMinute<54&&setNewMinute(newMinute+5)}>+</div>
                     <div></div>    
                 </div> 
                 <div  className='Clock2'>{newHour}:{toStr(newMinute)}:{toStr(0)}</div>
                 <div className='Buttons'>
-                    <div   className='Option NoClick' onClick={()=>newHour>0&&setNewHour(newHour-1)}>-</div>
-                    <div   className='Option NoClick' onClick={()=>newMinute>0&&setNewMinute(newMinute-1)}>-</div>
+                    <div className='Option NoClick' onClick={()=>newHour>0&&setNewHour(newHour-1)}>-</div>
+                    <div className='Option NoClick' onClick={()=>newMinute>4&&setNewMinute(newMinute-5)}>-</div>
                     <div></div>     
                 </div> 
                 <div  className='Buttons'>
-                    <div  className='Option NoClick' onClick={()=>nuevaAlarma()}>CONFIRMAR</div>
-                    <div  className='Option NoClick' onClick={()=>Cancelar()}>CANCELAR</div>  
+                    <div className='Option NoClick' onClick={()=>nuevaAlarma()}>CONFIRMAR</div>
+                    <div className='Option NoClick' onClick={()=>Cancelar()}>CANCELAR</div>  
                 </div>     
             </div>}
         </div>

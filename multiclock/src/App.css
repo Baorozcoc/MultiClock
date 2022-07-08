@@ -18,21 +18,41 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  font-family: 'Digi1';
+}
+@media screen and (max-width: 800px) {
+  .Main{
+    justify-content: space-evenly;
+  }
+}
+.Divider{
+  width: 100vw;
+  height: 0.5vh;
+  background-color: white;
 }
 .Buttons{
-  font-family: 'Digi1';
   font-size: 6vw;
   color: white;
   text-shadow: 0 0 20px  white;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  user-select: none;
 }
 .Buttons div{
   padding: 0px 30px;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 .Buttons div:hover{
   cursor: pointer;
   box-shadow: 0 0 8px 5px white;
+}
+.Credits{
+  text-align: right;
+  position: absolute;
+  bottom: 1vh;
+  right:1vw;
+  font-size: 2vw;
+  color: white;
+  text-shadow: 0 0 20px  white;
 }

@@ -79,7 +79,7 @@ const Alarm = () => {
                     </div>
                 ))}
             </div>
-            <div className='Option NoClick' onClick={()=>setNewAlarm(1)}>Agregar Alarma</div>
+            {alarms.length<12&&<div className='Option NoClick' onClick={()=>setNewAlarm(1)}>Agregar Alarma</div>}
             {newAlarm===1&&
             <div className='Emergente'>
                 <div className='Buttons'>

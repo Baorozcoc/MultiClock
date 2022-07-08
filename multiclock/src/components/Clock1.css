@@ -10,3 +10,11 @@
     color: var(--Secondary-color);
     text-shadow: 0 0 20px  var(--Secondary-color);
 } 
+@media screen and (max-width: 800px) {
+    .Clock1{
+        font-size: 28vw;
+    }
+    .Date{
+        font-size: 6vw;
+    }
+}

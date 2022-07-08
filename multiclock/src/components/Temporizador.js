@@ -128,7 +128,8 @@ const Temp1 = () => {
                 <div onClick={()=>LessSeconds()}>-</div>
             </div>}
             <div className='Buttons'>
-                {start===0?<div onClick={()=>setstart(1)}>EMPEZAR</div>:<div onClick={()=>setstart(0)}>PARAR</div>}
+                {start===0&&(minutes!==0||hours!==0||seconds!==0)&&<div onClick={()=>setstart(1)}>EMPEZAR</div>}
+                {start===1&&<div onClick={()=>setstart(0)}>PARAR</div>}
                 {infinite===0?<div onClick={()=>isInfinite(1)}>REPETIR=NO</div>:<div onClick={()=>isInfinite(0)}>REPETIR=SI</div>}
             </div>
         </div>

@@ -4,8 +4,8 @@
     flex-direction: row;
     justify-content: space-around;
     width:100vw;
-  }
-  .Option{
+}
+.Option{
     font-family: 'Digi1';
     font-size: 3vw;
     display: flex;
@@ -13,20 +13,42 @@
     align-items: center;
     justify-content: center;
     padding: 12px 10px;
-    border-radius: 15px;
+    border-radius: 10px;
     text-shadow: 0 0 20px  white;
     transition:all 0.3s ease;
     user-select: none;
-  }
-  .Clicked{
+}
+.Clicked{
     position: absolute;
     top: 1vh;
     left:1vw;
     font-size: 4vw;
     color: var(--Secondary-color);
     text-shadow: 0 0 20px  var(--Secondary-color);
-  }
-  .NoClick:hover{
+}
+.NoClick:hover{
     cursor: pointer;
     box-shadow: 0 0 8px 5px white;
+}
+@media screen and (max-width: 1200px) {
+  .Options{
+      flex-direction: column;
   }
+  .Option{
+    font-size: 4.5vw;
+  }
+  .Clicked{
+    font-size: 6vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  .Options{
+      flex-direction: column;
+  }
+  .Option{
+    font-size: 6vw;
+  }
+  .Clicked{
+    font-size: 7vw;
+  }
+}

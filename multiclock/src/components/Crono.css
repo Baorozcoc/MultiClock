@@ -1,0 +1,23 @@
+.Crono {
+    font-family: 'Digi1';
+    color: var(--Secondary-color);
+    font-size: 20vw;
+    text-shadow: 0 0 20px  var(--Secondary-color);
+    text-align: left;
+    width: 90vw;
+    padding-left: 10vw;
+}
+.Milisec{
+    display: inline;
+    font-size: 10vw;
+    width: 20%;
+}
+@media screen and (max-width: 800px) {
+    .Crono{
+        font-size: 22vw;
+        padding-left: 2vw;
+    }
+    .Milisec{
+        font-size: 12vw;
+    }
+}

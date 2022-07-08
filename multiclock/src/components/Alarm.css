@@ -38,7 +38,24 @@
     border-radius: 20px;
     background-color: rgb(40, 44, 52,0.9);
     box-shadow: 0 0 8px 5px white;
+    padding:10px;
 }
 .Emergente div{
     justify-content: space-evenly;
+}
+@media screen and (max-width: 800px) {
+    .Clock{
+        font-size: 26vw;
+    }
+    .Clock2{
+        font-size: 20vw;
+    }
+    .Emergente{
+        width: 80vw;
+        top: 10vh;
+        left:10vw;
+    }
+    .Alarms{
+        font-size: 7vw;
+    }
 }

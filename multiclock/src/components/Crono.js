@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import './Crono.css'
 import Sound from '../resources/Option.wav'
+import './Crono.css'
 
 function toStr(texto){
     return texto.toLocaleString('en-US', {
@@ -42,7 +42,7 @@ const Crono = () => {
                 else{
                     setMilisec(milsec+1);
                 }
-            },10)
+            },8)
 
     }, [hours, minutes,  seconds, milsec, start]);
     const sectoshow=toStr(seconds);

@@ -21,3 +21,10 @@
         font-size: 12vw;
     }
 }
+
+@media screen and (min-width: 1200px) {
+    .Crono {
+       font-size: 270px;
+       padding-left: 10vw;
+    }
+  }

@@ -15,7 +15,13 @@ const Alarm = () => {
     function refreshClock() {
         setDate(new Date());
     }
-    const hour = date.getHours();
+    var hour=0;
+    if(date.getHours()<=12){
+        hour = date.getHours();
+    }
+    else{
+        hour = date.getHours()%13+1;
+    }
     const min= date.getMinutes();
     const sec= date.getSeconds();
 

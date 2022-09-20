@@ -3,4 +3,10 @@
     color: var(--Secondary-color);
     font-size: 20vw;
     text-shadow: 0 0 20px  var(--Secondary-color);
+    width: 90vw;
 }
+@media screen and (min-width: 1200px) {
+    .Temp1 {
+       font-size: 270px;
+    }
+  }

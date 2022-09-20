@@ -21,11 +21,11 @@ function App() {
         <div className='Styles'>
           <div className='S1' onClick={()=>ChangeColor('#00aeff')}>1</div>
           <div className='S2' onClick={()=>ChangeColor('orange')}>2</div>
-          <div className='S3' onClick={()=>ChangeColor('lightseagreen')}>3</div>
-          <div className='S4' onClick={()=>ChangeColor('salmon')}>4</div>
-          <div className='S5' onClick={()=>ChangeColor('lightgreen')}>5</div>
+          <div className='S3' onClick={()=>ChangeColor('#00FFB9')}>3</div>
+          <div className='S4' onClick={()=>ChangeColor('#ff0000')}>4</div>
+          <div className='S5' onClick={()=>ChangeColor('#00FF56')}>5</div>
           <div className='S6' onClick={()=>ChangeColor('orangered')}>6</div>
-          <div className='S7' onClick={()=>ChangeColor('hotpink')}>7</div>
+          <div className='S7' onClick={()=>ChangeColor('#0011ff')}>7</div>
         </div>
         {option===0&&<Clock1/>}
         {option===1&&<Crono/>}

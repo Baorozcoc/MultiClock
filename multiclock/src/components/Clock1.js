@@ -20,7 +20,14 @@ const Clock1 = () => {
     const day= toStr(date.getDate());
     const month=date.getMonth();
     const anio= date.getFullYear();
-    const hour = date.getHours()%12;
+    var hour=0;
+    if(date.getHours()<=12){
+        hour = date.getHours();
+    }
+    else{
+        hour = date.getHours()%13+1;
+    }
+    
     const min= toStr(date.getMinutes());
     const sec= toStr(date.getSeconds());
     const months=["ENE","FEB","MAR","ABR","MAY","JUN","JUL","AGO","SEP","OCT","NOV","DIC"];

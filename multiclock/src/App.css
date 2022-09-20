@@ -40,11 +40,12 @@
   text-shadow: 0 0 20px  white;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   user-select: none;
 }
 .Buttons div{
-  padding: 0px 30px;
+  padding: 0px 40px;
+  margin: 0px 5vw;
   border-radius: 10px;
 }
 .Buttons div:hover{
@@ -100,22 +101,22 @@
   text-shadow: 0 0 20px  orange;
 }
 .S3{
-  color:lightseagreen;
-  text-shadow: 0 0 20px  lightseagreen;
+  color:#00FFB9;
+  text-shadow: 0 0 20px  #00FFB9;
 }
 .S4{
-  color:salmon;
-  text-shadow: 0 0 20px  salmon;
+  color:#ff0000;
+  text-shadow: 0 0 20px  #ff0000;
 }
 .S6{
   color:orangered;
   text-shadow: 0 0 20px  orangered;
 }
 .S5{
-  color:lightgreen;
-  text-shadow: 0 0 20px  lightgreen;
+  color:#00FF56;
+  text-shadow: 0 0 20px  #00FF56;
 }
 .S7{
-  color:hotpink;
-  text-shadow: 0 0 20px  hotpink;
+  color:#0011ff;
+  text-shadow: 0 0 20px  #0011ff;
 }

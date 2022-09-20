@@ -6,7 +6,7 @@
     width: 90vw;
 }
 .Clock2 {
-    font-size: 16vw;
+    font-size: 12vw;
 }
 .AlarmsContainer{
     display: flex;
@@ -32,9 +32,9 @@
 .Emergente{
     font-family: 'Digi1';
     position: absolute;
-    width: 70vw;
+    width: 50vw;
     top: 5vh;
-    left: 20vw;
+    left: 24vw;
     border-radius: 20px;
     background-color: rgb(40, 44, 52,0.9);
     box-shadow: 0 0 8px 5px white;
@@ -59,3 +59,8 @@
         font-size: 7vw;
     }
 }
+@media screen and (min-width: 1200px) {
+    .Clock {
+       font-size: 270px;
+    }
+  }

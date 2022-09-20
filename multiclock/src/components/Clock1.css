@@ -18,3 +18,12 @@
         font-size: 6vw;
     }
 }
+
+@media screen and (min-width: 1200px) {
+    .Clock1 {
+       font-size: 270px;
+    }
+    .Date {
+        font-size: 70px;
+     }
+  }

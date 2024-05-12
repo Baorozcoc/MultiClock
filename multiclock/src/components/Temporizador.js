@@ -20,39 +20,42 @@ const Temp1 = () => {
     const [secondsstatic, setSecondsstatic]= useState(0);
     const [alarm]=useState(new Audio(Sound));
     useEffect(() => {
-            start===1&&setTimeout(()=> 
-            {
-                if(infinite===0 && hours===0 && minutes===0 && seconds===0 ){
-                    setstart(0);
-                }
-                else if(infinite===1 && hours===0 && minutes===0 && seconds===0){
-                    setSeconds(secondsstatic);
-                    setMinutes(minutesstatic);
-                    setHours(hoursstatic);
-                    
-                }
-                else if(seconds===0 && minutes===0 && hours!==0){
-                    setSeconds(59);
-                    setMinutes(59);
-                    setHours(hours-1);
-                }
-                else if(seconds===0 && minutes===0 && hours!==0){
-                    setSeconds(59);
-                    setMinutes(59);
-                    setHours(hours-1);
-                }
-                else if(seconds===0 && minutes!==0){
-                    setSeconds(59);
-                    setMinutes(minutes-1);
-                }
-                else{
-                    setSeconds(seconds-1);
-                }
-                if(hours===0 && minutes===0 && seconds===1){
-                    alarm.play();
-                }
-            },1000)
-
+        let timerId;
+        if(start) timerId = setTimeout(()=> {
+            if(infinite===0 && hours===0 && minutes===0 && seconds===0 ){
+                setstart(0);
+            }
+            else if(infinite===1 && hours===0 && minutes===0 && seconds===0){
+                setSeconds(secondsstatic);
+                setMinutes(minutesstatic);
+                setHours(hoursstatic);
+                
+            }
+            else if(seconds===0 && minutes===0 && hours!==0){
+                setSeconds(59);
+                setMinutes(59);
+                setHours(hours-1);
+            }
+            else if(seconds===0 && minutes===0 && hours!==0){
+                setSeconds(59);
+                setMinutes(59);
+                setHours(hours-1);
+            }
+            else if(seconds===0 && minutes!==0){
+                setSeconds(59);
+                setMinutes(minutes-1);
+            }
+            else{
+                setSeconds(seconds-1);
+            }
+            if(hours===0 && minutes===0 && seconds===1){
+                alarm.play();
+            }
+        },1000)
+        
+        return function cleanup() {
+            timerId&& clearTimeout(timerId);
+        };
     }, [alarm, hours, hoursstatic, infinite, minutes, minutesstatic, seconds, secondsstatic, start]);
     function MoreHours(){
         if(hours<99){
@@ -124,26 +127,28 @@ const Temp1 = () => {
     const mintoshow=toStr(minutes);
     const hourtoshow=toStr(hours);
     return(
-        <div>
+        <>
             {start===0&&
-            <div className='Buttons'>
-                <div onClick={()=>MoreHours()}>+</div>
-                <div onClick={()=>MoreMinutes()}>+</div>
-                <div onClick={()=>MoreSeconds()}>+</div>
-            </div>}
-            <div className='Temp1'>{hourtoshow}:{mintoshow}:{sectoshow}</div>
+            <fieldset className='Buttons'>
+                <button className='Option NoClick' onClick={()=>MoreHours()}>+</button>
+                <button className='Option NoClick' onClick={()=>MoreMinutes()}>+</button>
+                <button className='Option NoClick' onClick={()=>MoreSeconds()}>+</button>
+            </fieldset>}
+            <h1 className='Temp1'>{hourtoshow}:{mintoshow}:{sectoshow}</h1>
             {start===0&&
-            <div className='Buttons'>
-                <div onClick={()=>LessHours()}>-</div>
-                <div onClick={()=>LessMinutes()}>-</div>
-                <div onClick={()=>LessSeconds()}>-</div>
-            </div>}
-            <div className='Buttons'>
-                {start===0&&(minutes!==0||hours!==0||seconds!==0)&&<div onClick={()=>Activate(1)}>EMPEZAR</div>}
-                {start===1&&<div onClick={()=>Activate(0)}>PARAR</div>}
-                {infinite===0?<div onClick={()=>SetInfinite(1)}>REPETIR=NO</div>:<div onClick={()=>SetInfinite(0)}>REPETIR=SI</div>}
-            </div>
-        </div>
+            <fieldset className='Buttons'>
+                <button className='Option NoClick' onClick={()=>LessHours()}>-</button>
+                <button className='Option NoClick' onClick={()=>LessMinutes()}>-</button>
+                <button className='Option NoClick' onClick={()=>LessSeconds()}>-</button>
+            </fieldset>}
+            <fieldset className='Buttons flex-wrap'>
+                {start===0&&(minutes!==0||hours!==0||seconds!==0)&&<button className='Option NoClick' onClick={()=>Activate(1)}>EMPEZAR</button>}
+                {start===1&&<button className='Option NoClick' onClick={()=>Activate(0)}>PARAR</button>}
+                {infinite===0
+                    ?<button className='Option NoClick' onClick={()=>SetInfinite(1)}>REPETIR=NO</button>
+                    :<button className='Option NoClick' onClick={()=>SetInfinite(0)}>REPETIR=SI</button>}
+            </fieldset>
+        </>
     )
 }
 export default Temp1;

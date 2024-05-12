@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import Click from '../resources/SimpleClick.wav'
 import './Crono.css'
 
@@ -9,77 +9,61 @@ function toStr(texto){
     })
 }
 const Crono = () => {
-    const [start,setstart]=useState(0);
-    const [hours, setHours]= useState(0);
-    const [minutes, setMinutes]= useState(0);
-    const [seconds, setSeconds]= useState(0);
-    const [milsec, setMilisec]=useState(0);
-    useEffect(() => {
-            start===1&&setTimeout(()=> 
-            {
-                if(milsec===99 && seconds===59 && minutes===59&& hours===99){
-                    setMilisec(0);
-                    setSeconds(0);
-                    setMinutes(0);
-                    setHours(0);
-                    setstart(0);
-                }
-                else if(milsec===99 && seconds===59 && minutes===59 && hours!==99){
-                    setMilisec(0);
-                    setSeconds(0);
-                    setMinutes(0);
-                    setHours(hours+1);
-                }
-                else if(milsec===99 && seconds===59 && minutes!==59){
-                    setMilisec(0);
-                    setSeconds(0);
-                    setMinutes(minutes+1);
-                }
-                else if(milsec===99 && seconds!==59){
-                    setSeconds(seconds+1);
-                    setMilisec(0);
-                }
-                else{
-                    setMilisec(milsec+1);
-                }
-            },8)
+    const [startDate,setStartDate]=useState(null);
+    const [endDate,setEndDate] = useState(null);
+    const [start,setStart]=useState(false);
+    const timerId = useRef(null);
 
-    }, [hours, minutes,  seconds, milsec, start]);
-    const sectoshow=toStr(seconds);
-    const mintoshow=toStr(minutes);
-    const hourtoshow=toStr(hours);
-    const milsectoshow=toStr(milsec);
-    function Reset(){
-        setHours(0);
-        setMinutes(0);
-        setSeconds(0);
-        setMilisec(0);
-        const alarm= new Audio(Click);
-        alarm.play();
+    function refreshClock() {
+        setEndDate(new Date());
     }
+    useEffect(() => {
+        if(start) timerId.current = setInterval(refreshClock, 10);
+        return function cleanup() {
+          clearInterval(timerId.current);
+        };
+    }, [start]);
     function Continue(){
-        setstart(1);
+        mil? setStartDate(new Date().setMilliseconds(-mil)): setStartDate(new Date());
+        setEndDate(new Date());
+        setStart(true);
         const alarm= new Audio(Click);
         alarm.play();
     }
     function Stop(){
-        setstart(0);
+        setStart(false);
+        clearInterval(timerId.current);
         const alarm= new Audio(Click);
         alarm.play();
     }
+    function Reset(){
+        setEndDate(null);
+        setStartDate(null);
+        const alarm= new Audio(Click);
+        alarm.play();
+    }
+    
+    let mil = endDate && startDate? endDate - startDate: 0;
+    let milToShow = toStr(parseInt((mil%1000)/10))
+    let sec =parseInt(mil / 1000);
+    let secToShow = toStr(sec%60)
+    let min = parseInt(sec/60);
+    let minToShow = toStr(min%60);
+    let hrs = parseInt(min/60);
+    let hrsToShow = toStr(hrs%24);
+
     return(
-        <div>
-            <div className='Crono'>
-                {hourtoshow}:{mintoshow}:{sectoshow}
-                <div className='Milisec'>:{milsectoshow}</div>
-            </div>
-            <div className='Buttons'>
-                {start===0&&hours===0&&minutes===0&&seconds===0&&milsec===0&&<div onClick={()=>Continue()}>EMPEZAR</div>}
-                {start===0&&(hours!==0||minutes!==0||seconds!==0||milsec!==0)&&<div onClick={()=>Continue()}>CONTINUAR</div>}
-                {start===1&&<div onClick={()=>Stop()}>PARAR</div>}
-                {start===0&&(hours!==0||minutes!==0||seconds!==0||milsec!==0)&&<div onClick={()=>Reset()}>REINICIAR</div>}
-            </div>
-        </div>
+        <>
+           <h1 className='Crono'>
+                {hrsToShow}:{minToShow}:{secToShow}
+                <span className='Milisec'>:{milToShow}</span>
+            </h1>
+            <fieldset className='Buttons flex-wrap'>
+                {!start&&<button className='Option NoClick' onClick={()=>Continue()}>{mil===0? 'EMPEZAR' : 'CONTINUAR'}</button>}
+                {start&&<button className='Option NoClick' onClick={()=>Stop()}>PARAR</button>}
+                {!start&&mil!==0&&<button className='Option NoClick' onClick={()=>Reset()}>REINICIAR</button>}
+            </fieldset>
+        </>
     )
 }
 export default Crono;

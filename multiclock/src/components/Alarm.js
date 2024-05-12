@@ -15,13 +15,7 @@ const Alarm = () => {
     function refreshClock() {
         setDate(new Date());
     }
-    var hour=0;
-    if(date.getHours()<=12){
-        hour = date.getHours();
-    }
-    else{
-        hour = date.getHours()%13+1;
-    }
+    const hour=date.getHours();
     const min= date.getMinutes();
     const sec= date.getSeconds();
 
@@ -102,18 +96,18 @@ const Alarm = () => {
             {alarms.length<12&&<div className='Option NoClick' onClick={()=>AbrirNuevaAlarma()}>Agregar Alarma</div>}
             {newAlarm===1&&
             <div className='Emergente'>
-                <div className='Buttons'>
+                <div className='Buttons updown'>
                     <div className='Option NoClick' onClick={()=>newHour<24&&setNewHour(newHour+1)}>+</div>
                     <div className='Option NoClick' onClick={()=>newMinute<54&&setNewMinute(newMinute+5)}>+</div>
                     <div></div>    
                 </div> 
                 <div  className='Clock2'>{newHour}:{toStr(newMinute)}:{toStr(0)}</div>
-                <div className='Buttons'>
+                <div className='Buttons updown'>
                     <div className='Option NoClick' onClick={()=>newHour>0&&setNewHour(newHour-1)}>-</div>
                     <div className='Option NoClick' onClick={()=>newMinute>4&&setNewMinute(newMinute-5)}>-</div>
                     <div></div>     
                 </div> 
-                <div  className='Buttons'>
+                <div  className='Buttons flex-wrap'>
                     <div className='Option NoClick' onClick={()=>nuevaAlarma()}>CONFIRMAR</div>
                     <div className='Option NoClick' onClick={()=>Cancelar()}>CANCELAR</div>  
                 </div>     

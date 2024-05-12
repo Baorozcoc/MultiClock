@@ -1,6 +1,10 @@
 .App {
   text-align: center;
 }
+*{
+  font-family: 'Digi1';
+  transition: .2s ease-in all;
+}
 :root{
   --Principal-color: #15df91;
   --Secondary-color: #00aeff;
@@ -24,11 +28,6 @@
   font-family: 'Digi1';
   overflow: hidden;
 }
-@media screen and (max-width: 800px) {
-  .Main{
-    justify-content: space-evenly;
-  }
-}
 .Divider{
   width: 100vw;
   height: 0.5vh;
@@ -42,13 +41,18 @@
   align-items: center;
   justify-content: center;
   user-select: none;
+  border: none;
+  width: 100%;
 }
-.Buttons div{
+.Buttons button{
   padding: 0px 40px;
   margin: 0px 5vw;
   border-radius: 10px;
+  background-color: transparent;
+  color: white;
+  border: none;
 }
-.Buttons div:hover{
+.Buttons button:hover{
   cursor: pointer;
   box-shadow: 0 0 8px 5px white;
 }
@@ -57,7 +61,7 @@
   position: absolute;
   bottom: 1vh;
   right:1vw;
-  font-size: 2vw;
+  font-size: clamp(1.5rem, 2vw, 5rem);
   color: rgb(255, 255, 255,0.3);
   text-shadow: 0 0 20px  rgb(255, 255, 255,0.3);
 }
@@ -67,7 +71,7 @@
   justify-content: center;
   text-align: right;
   position: absolute;
-  top: 1vh;
+  top: 2vh;
   right:1vw;
   font-size: 4vw;
   color: white;
@@ -86,37 +90,27 @@
 .Styles div{
   padding: 5px;
   margin:0px 5px;
-  border-radius: 10px;
+  border-radius: 50%;
+  width: 15px !important;
+  height: 15px !important;
 }
 .Styles div:hover{
   cursor: pointer;
   box-shadow: 0 0 8px 5px white;
 }
 .S1{
-  color: #00aeff;
-  text-shadow: 0 0 20px  #00aeff;
+  background-color: #2abcff;
+  box-shadow: 0 0 20px  #2abcff;
 }
 .S2{
-  color: orange;
-  text-shadow: 0 0 20px  orange;
+  background-color: orange;
+  box-shadow: 0 0 20px  orange;
 }
 .S3{
-  color:#00FFB9;
-  text-shadow: 0 0 20px  #00FFB9;
+  background-color:#00fff2;
+  box-shadow: 0 0 20px  #00fff2;
 }
 .S4{
-  color:#ff0000;
-  text-shadow: 0 0 20px  #ff0000;
-}
-.S6{
-  color:orangered;
-  text-shadow: 0 0 20px  orangered;
-}
-.S5{
-  color:#00FF56;
-  text-shadow: 0 0 20px  #00FF56;
-}
-.S7{
-  color:#0011ff;
-  text-shadow: 0 0 20px  #0011ff;
+  background-color:#fcf373;
+  box-shadow: 0 0 20px  #fcf373;
 }

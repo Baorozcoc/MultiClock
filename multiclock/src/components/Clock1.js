@@ -19,23 +19,16 @@ const Clock1 = () => {
     }, []);
     const day= toStr(date.getDate());
     const month=date.getMonth();
-    const anio= date.getFullYear();
-    var hour=0;
-    if(date.getHours()<=12){
-        hour = date.getHours();
-    }
-    else{
-        hour = date.getHours()%13+1;
-    }
-    
+    const year= date.getFullYear();
+    const hour=date.getHours();
     const min= toStr(date.getMinutes());
     const sec= toStr(date.getSeconds());
     const months=["ENE","FEB","MAR","ABR","MAY","JUN","JUL","AGO","SEP","OCT","NOV","DIC"];
     return(
-        <div>
-            <div className='Date'>{anio}-{months[month]}-{day}</div>
-            <div className='Clock1'>{hour}:{min}:{sec}</div>
-        </div>
+        <>
+            <h4 className='Date'>{year}-{months[month]}-{day}</h4>
+            <h1 className='Clock1'>{hour<=12? hour : hour%13+1}:{min}:{sec}<span className='Date'>{hour<=12? 'AM' : 'PM'}</span></h1>
+        </>
     )
 }
 export default Clock1;

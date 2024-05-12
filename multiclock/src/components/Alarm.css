@@ -1,9 +1,8 @@
 .Clock {
     font-family: 'Digi1';
     color: var(--Secondary-color);
-    font-size: 22vw;
+    font-size: clamp(5rem, 22vw, 14rem);
     text-shadow: 0 0 20px  var(--Secondary-color);
-    width: 90vw;
 }
 .Clock2 {
     font-size: 12vw;
@@ -12,13 +11,16 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    width: 97vw;
 }
 .Alarms{
     font-family: 'Digi1';
-    font-size: 4vw;
+    font-size: clamp(2rem, 5vw, 4rem);
     color: var(--Principal-color);
     text-shadow: 0 0 20px  var(--Principal-color);
     padding: 5px;
+    margin-right: 10px;
+    position: relative;
 }
 .Alarms i:hover{
     cursor: pointer;
@@ -28,10 +30,14 @@
 .Ex{
     color: red;
     text-shadow: 0 0 20px  red;
+    position: absolute;
+    transform: scale(0.5);
+    top: -10px;
 }
 .Emergente{
     font-family: 'Digi1';
     position: absolute;
+    z-index: 2;
     width: 50vw;
     top: 5vh;
     left: 24vw;
@@ -40,13 +46,13 @@
     box-shadow: 0 0 8px 5px white;
     padding:10px;
 }
-.Emergente div{
+.Emergente .updown{
     justify-content: space-evenly;
 }
+.flex-wrap{
+    flex-wrap: wrap;
+}
 @media screen and (max-width: 800px) {
-    .Clock{
-        font-size: 26vw;
-    }
     .Clock2{
         font-size: 20vw;
     }
@@ -55,12 +61,4 @@
         top: 10vh;
         left:10vw;
     }
-    .Alarms{
-        font-size: 7vw;
-    }
 }
-@media screen and (min-width: 1200px) {
-    .Clock {
-       font-size: 270px;
-    }
-  }

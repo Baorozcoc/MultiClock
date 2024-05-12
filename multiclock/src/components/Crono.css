@@ -1,30 +1,28 @@
 .Crono {
-    font-family: 'Digi1';
+    font-weight: normal;
     color: var(--Secondary-color);
-    font-size: 20vw;
+    font-size: clamp(5rem, 20vw, 15rem);
     text-shadow: 0 0 20px  var(--Secondary-color);
     text-align: left;
     width: 90vw;
     padding-left: 10vw;
+    margin-bottom: 0;
 }
 .Milisec{
     display: inline;
-    font-size: 10vw;
+    font-size: clamp(4rem, 8vw, 8rem);
     width: 20%;
 }
-@media screen and (max-width: 800px) {
+.flex-wrap{
+    flex-wrap: wrap;
+}
+@media screen and (max-width: 500px) {
     .Crono{
-        font-size: 22vw;
-        padding-left: 2vw;
-    }
-    .Milisec{
-        font-size: 12vw;
+        padding-left: 0;
     }
 }
-
-@media screen and (min-width: 1200px) {
-    .Crono {
-       font-size: 270px;
-       padding-left: 10vw;
+@media screen and (max-width: 375px) {
+    .Milisec{
+        display: none;
     }
-  }
+}

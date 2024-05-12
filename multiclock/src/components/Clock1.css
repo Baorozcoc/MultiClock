@@ -1,29 +1,15 @@
- .Clock1 {
-    font-family: 'Digi1';
-    color: var(--Secondary-color);
-    font-size: 22vw;
-    text-shadow: 0 0 20px  var(--Secondary-color);
-}
 .Date{
     font-family: 'Digi1';
-    font-size: 4vw;
+    font-size: clamp(2rem, 4vw, 4rem);
     color: var(--Secondary-color);
     text-shadow: 0 0 20px  var(--Secondary-color);
-} 
-@media screen and (max-width: 800px) {
-    .Clock1{
-        font-size: 28vw;
-    }
-    .Date{
-        font-size: 6vw;
-    }
+    margin-bottom: 0;
+    font-weight: normal;
+}  
+.Clock1 {
+    color: var(--Secondary-color);
+    font-size: clamp(5rem, 22vw, 14rem);
+    text-shadow: 0 0 20px  var(--Secondary-color);
+    margin: 0;
+    font-weight: normal;
 }
-
-@media screen and (min-width: 1200px) {
-    .Clock1 {
-       font-size: 270px;
-    }
-    .Date {
-        font-size: 70px;
-     }
-  }
